@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum BPMediaType {
+public enum BPMediaType: Int {
     /// 缩略图
     case thumbImage
     /// 大图（压缩后）
