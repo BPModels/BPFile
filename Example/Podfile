@@ -1,0 +1,6 @@
+use_frameworks!
+target 'BPFile_Tests' do
+  pod 'BPFile', :path => '../'
+  
+  
+end
