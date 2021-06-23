@@ -1,0 +1,16 @@
+PODS:
+  - BPFile (0.1.0)
+
+DEPENDENCIES:
+  - BPFile (from `../`)
+
+EXTERNAL SOURCES:
+  BPFile:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BPFile: ea663bbf0ce69272d72f1fcc3934a2fca889f5e1
+
+PODFILE CHECKSUM: 70bf5777e9070926fad7523e2da355573f6ed96a
+
+COCOAPODS: 1.10.1

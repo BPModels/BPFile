@@ -1,0 +1,6 @@
+framework module BPFile {
+  umbrella header "BPFile-umbrella.h"
+
+  export *
+  module * { export * }
+}
