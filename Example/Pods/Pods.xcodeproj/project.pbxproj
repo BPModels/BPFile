@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		10CC07E7381FCEC65F569085FCC4F36D /* Pods-BPFile_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B395D198D827410A94AAC7BC46F03D1F /* Pods-BPFile_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1761AFBC44B824BB3712E922D7E49B64 /* BPFile-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 193720D97F1DDCD6F56F41430CCF354F /* BPFile-dummy.m */; };
+		22263A6E2683195A00E245AA /* BPFileManager+IM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22263A6D2683195A00E245AA /* BPFileManager+IM.swift */; };
 		227AECAB2682DA3C00885295 /* BPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AECA92682DA3C00885295 /* BPCache.swift */; };
 		227AECAC2682DA3C00885295 /* BPFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AECAA2682DA3C00885295 /* BPFileManager.swift */; };
-		227AECAE2682DBF300885295 /* BPFileManager+IM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AECAD2682DBF300885295 /* BPFileManager+IM.swift */; };
 		227AECB0268303D700885295 /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AECAF268303D700885295 /* UserDefault+Extension.swift */; };
 		2C9402CD4E991511C663332B408E1EC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		57317A2538877A01779B18EF23F95AC7 /* Pods-BPFile_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 159C8F95D59585E063B275503791D421 /* Pods-BPFile_Tests-dummy.m */; };
@@ -36,9 +36,9 @@
 		159C8F95D59585E063B275503791D421 /* Pods-BPFile_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BPFile_Tests-dummy.m"; sourceTree = "<group>"; };
 		18413627FC43BE35D0A363E0C09F948C /* BPFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BPFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		193720D97F1DDCD6F56F41430CCF354F /* BPFile-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BPFile-dummy.m"; sourceTree = "<group>"; };
+		22263A6D2683195A00E245AA /* BPFileManager+IM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BPFileManager+IM.swift"; path = "BPFile/Classes/BPFileManager+IM.swift"; sourceTree = "<group>"; };
 		227AECA92682DA3C00885295 /* BPCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BPCache.swift; path = BPFile/Classes/BPCache.swift; sourceTree = "<group>"; };
 		227AECAA2682DA3C00885295 /* BPFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BPFileManager.swift; path = BPFile/Classes/BPFileManager.swift; sourceTree = "<group>"; };
-		227AECAD2682DBF300885295 /* BPFileManager+IM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BPFileManager+IM.swift"; sourceTree = "<group>"; };
 		227AECAF268303D700885295 /* UserDefault+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserDefault+Extension.swift"; path = "BPFile/Classes/UserDefault+Extension.swift"; sourceTree = "<group>"; };
 		329DEF2396967F7CE05FD7AF3A5156B8 /* Pods-BPFile_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BPFile_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		32FB77EAC5F16975D8F776F47A6E155E /* Pods-BPFile_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BPFile_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -157,10 +157,10 @@
 		C4749F70BC8A2E9C09C788899CF235E8 /* BPFile */ = {
 			isa = PBXGroup;
 			children = (
+				22263A6D2683195A00E245AA /* BPFileManager+IM.swift */,
 				227AECAF268303D700885295 /* UserDefault+Extension.swift */,
 				227AECA92682DA3C00885295 /* BPCache.swift */,
 				227AECAA2682DA3C00885295 /* BPFileManager.swift */,
-				227AECAD2682DBF300885295 /* BPFileManager+IM.swift */,
 				29BACE4E5D1CFC556D4A5763FD9D4350 /* Pod */,
 				8A6DEE81D833EFBBE1D027255D4FC2B1 /* Support Files */,
 			);
@@ -302,11 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22263A6E2683195A00E245AA /* BPFileManager+IM.swift in Sources */,
 				227AECB0268303D700885295 /* UserDefault+Extension.swift in Sources */,
 				227AECAB2682DA3C00885295 /* BPCache.swift in Sources */,
 				1761AFBC44B824BB3712E922D7E49B64 /* BPFile-dummy.m in Sources */,
 				227AECAC2682DA3C00885295 /* BPFileManager.swift in Sources */,
-				227AECAE2682DBF300885295 /* BPFileManager+IM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
