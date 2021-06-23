@@ -157,10 +157,10 @@
 		C4749F70BC8A2E9C09C788899CF235E8 /* BPFile */ = {
 			isa = PBXGroup;
 			children = (
+				227AECAA2682DA3C00885295 /* BPFileManager.swift */,
 				22263A6D2683195A00E245AA /* BPFileManager+IM.swift */,
 				227AECAF268303D700885295 /* UserDefault+Extension.swift */,
 				227AECA92682DA3C00885295 /* BPCache.swift */,
-				227AECAA2682DA3C00885295 /* BPFileManager.swift */,
 				29BACE4E5D1CFC556D4A5763FD9D4350 /* Pod */,
 				8A6DEE81D833EFBBE1D027255D4FC2B1 /* Support Files */,
 			);

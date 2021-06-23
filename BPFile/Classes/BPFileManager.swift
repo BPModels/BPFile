@@ -23,7 +23,8 @@ public struct BPFileManager {
     ///   - name: 文件名称
     ///   - data: 资源数据
     /// - Returns: 是否保存成功
-    func saveFile(name: String, data: Data) -> Bool {
+    @discardableResult
+    public func saveFile(name: String, data: Data) -> Bool {
         let path = "\(normalPath())/\(name)"
         self.checkFile(path: path)
         guard let fileHandle = FileHandle(forWritingAtPath: path) else {
@@ -39,7 +40,7 @@ public struct BPFileManager {
     /// - Parameters:
     ///   - name: 文件名称
     /// - Returns: 资源文件
-    func receiveSessionMediaFile(name: String) -> Data? {
+    public func receiveSessionMediaFile(name: String) -> Data? {
         let path = "\(normalPath())/\(name)"
         // 检测文件是否存在
         guard FileManager.default.fileExists(atPath: path) else {

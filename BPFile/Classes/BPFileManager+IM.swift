@@ -45,6 +45,7 @@ public extension BPFileManager {
     ///   - session: 聊天室名称、ID
     ///   - data: 资源数据
     /// - Returns: 是否保存成功
+    @discardableResult
     func saveSessionMediaFile(type: BPMediaType, name: String, session: String, data: Data) -> Bool {
         var path = ""
         switch type {
