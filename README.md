@@ -1,6 +1,7 @@
 # BPFile
 
 
+[![Swift](https://img.shields.io/badge/Swift-%3E=5.0-Orange?style=flat-square)](https://img.shields.io/badge/Swift-%3E=5.0-Orange?style=flat-square)
 
 [![CI Status](https://img.shields.io/travis/TestEngineerFish/BPFile.svg?style=flat)](https://travis-ci.org/TestEngineerFish/BPFile)
 
@@ -8,7 +9,8 @@
 
 [![License](https://img.shields.io/cocoapods/l/BPFile.svg?style=flat)](https://cocoapods.org/pods/BPFile)
 
-[![Platform](https://img.shields.io/cocoapods/p/BPFile.svg?style=flat)](https://cocoapods.org/pods/BPFile)
+[![Platform](https://img.shields.io/badge/Platforms-iOS-Green?style=flat-square)](https://img.shields.io/badge/Platforms-iOS-Green?style=flat-square)
+
 
 
 
