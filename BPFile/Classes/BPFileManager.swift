@@ -22,11 +22,11 @@ public struct BPFileManager {
         let path = "\(normalPath())/\(name)"
         self.checkFile(path: path)
         guard let fileHandle = FileHandle(forWritingAtPath: path) else {
-            BPFileConfig.share.delegate?.printLog(log: "文件\(name)写入失败:\(path)")
+            BPFileConfig.share.delegate?.printFileLog(log: "文件\(name)写入失败:\(path)")
             return false
         }
         fileHandle.write(data)
-        BPFileConfig.share.delegate?.printLog(log: "文件\(name)写入成功")
+        BPFileConfig.share.delegate?.printFileLog(log: "文件\(name)写入成功")
         return true
     }
 
@@ -41,11 +41,11 @@ public struct BPFileManager {
             return nil
         }
         guard let fileHandle = FileHandle(forReadingAtPath: path) else {
-            BPFileConfig.share.delegate?.printLog(log: "文件\(name)读取失败:\(path)")
+            BPFileConfig.share.delegate?.printFileLog(log: "文件\(name)读取失败:\(path)")
             return nil
         }
         let data = fileHandle.readDataToEndOfFile()
-        BPFileConfig.share.delegate?.printLog(log: "文件\(name)读取成功")
+        BPFileConfig.share.delegate?.printFileLog(log: "文件\(name)读取成功")
         return data
     }
 
