@@ -1,10 +1,6 @@
 # BPFile
 
-
-![BPFile](https://github.com/BPModels/BPFile/blob/master/BPFile.jpg)
-
-[!
-[image](https://github.com/BPModels/BPFile/blob/master/BPFile.jpg)](https://github.com/BPModels/BPFile/blob/master/BPFile.jpg)
+![BPFile: Elegant Networking in Swift](https://github.com/BPModels/BPFile/blob/master/BPFile.jpg)
 
 [![Swift](https://img.shields.io/badge/Swift-%3E=5.0-Orange?style=flat-square)](https://img.shields.io/badge/Swift-%3E=5.0-Orange?style=flat-square)
 
