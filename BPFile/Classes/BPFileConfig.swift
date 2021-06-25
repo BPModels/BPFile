@@ -9,7 +9,7 @@ import Foundation
 
 public protocol BPFileDelegate: NSObjectProtocol {
     /// 输出日志
-    func printLog(log: String)
+    func printFileLog(log: String)
 }
 
 public struct BPFileConfig {
