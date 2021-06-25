@@ -8,15 +8,9 @@
 
 import Foundation
 
-public protocol BPFileDelegate {
-    /// 输出日志
-    func printLog(log: String)
-}
-
 public struct BPFileManager {
-    public static let share = BPFileManager()
     
-    public var delegate: BPFileDelegate?
+    public static let share = BPFileManager()
     
     /// 保存资源文件
     /// - Parameters:
@@ -28,11 +22,11 @@ public struct BPFileManager {
         let path = "\(normalPath())/\(name)"
         self.checkFile(path: path)
         guard let fileHandle = FileHandle(forWritingAtPath: path) else {
-            self.delegate?.printLog(log: "文件\(name)写入失败:\(path)")
+            BPFileConfig.share.delegate?.printLog(log: "文件\(name)写入失败:\(path)")
             return false
         }
         fileHandle.write(data)
-        self.delegate?.printLog(log: "文件\(name)写入成功")
+        BPFileConfig.share.delegate?.printLog(log: "文件\(name)写入成功")
         return true
     }
 
@@ -47,11 +41,11 @@ public struct BPFileManager {
             return nil
         }
         guard let fileHandle = FileHandle(forReadingAtPath: path) else {
-            self.delegate?.printLog(log: "文件\(name)读取失败:\(path)")
+            BPFileConfig.share.delegate?.printLog(log: "文件\(name)读取失败:\(path)")
             return nil
         }
         let data = fileHandle.readDataToEndOfFile()
-        self.delegate?.printLog(log: "文件\(name)读取成功")
+        BPFileConfig.share.delegate?.printLog(log: "文件\(name)读取成功")
         return data
     }
 

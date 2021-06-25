@@ -63,11 +63,11 @@ public extension BPFileManager {
         }
         self.checkFile(path: path)
         guard let fileHandle = FileHandle(forWritingAtPath: path) else {
-            self.delegate?.printLog(log: "文件\(name)写入失败:\(path)")
+            BPFileConfig.share.delegate?.printLog(log: "文件\(name)写入失败:\(path)")
             return false
         }
         fileHandle.write(data)
-        self.delegate?.printLog(log: "文件\(name)写入成功")
+        BPFileConfig.share.delegate?.printLog(log: "文件\(name)写入成功")
         return true
     }
     
@@ -97,11 +97,11 @@ public extension BPFileManager {
             return nil
         }
         guard let fileHandle = FileHandle(forReadingAtPath: path) else {
-            self.delegate?.printLog(log: "文件\(name)读取失败:\(path)")
+            BPFileConfig.share.delegate?.printLog(log: "文件\(name)读取失败:\(path)")
             return nil
         }
         let data = fileHandle.readDataToEndOfFile()
-        self.delegate?.printLog(log: "文件\(name)读取成功")
+        BPFileConfig.share.delegate?.printLog(log: "文件\(name)读取成功")
         return data
     }
     

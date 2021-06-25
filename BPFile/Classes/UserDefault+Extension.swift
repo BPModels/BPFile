@@ -46,7 +46,7 @@ public extension UserDefaults {
                 do {
                     data = try NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: true)
                 } catch {
-                    print("archive fail!!\n key: \(key)\n value: \(value)")
+                    BPFileConfig.share.delegate?.printLog(log: ("archive fail!!\n key: \(key)\n value: \(value)"))
                 }
             } else {
                 data = NSKeyedArchiver.archivedData(withRootObject: value)
@@ -68,7 +68,7 @@ public extension UserDefaults {
             do {
                 value = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
             } catch {
-                print("unarchived fail!!\n key: \(key)\n")
+                BPFileConfig.share.delegate?.printLog(log: ("unarchived fail!!\n key: \(key)\n"))
             }
         } else {
             value = NSKeyedUnarchiver.unarchiveObject(with: data)
