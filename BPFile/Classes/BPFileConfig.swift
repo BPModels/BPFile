@@ -14,7 +14,7 @@ public protocol BPFileDelegate: NSObjectProtocol {
 
 public struct BPFileConfig {
     
-    public static let share = BPFileConfig()
+    public static var share = BPFileConfig()
     
     public weak var delegate: BPFileDelegate?
 }
