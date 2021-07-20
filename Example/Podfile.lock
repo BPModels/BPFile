@@ -1,5 +1,5 @@
 PODS:
-  - BPFile (0.1.0)
+  - BPFile (0.2.0)
 
 DEPENDENCIES:
   - BPFile (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BPFile: ea663bbf0ce69272d72f1fcc3934a2fca889f5e1
+  BPFile: 64514f54db5a84e03aab835d4b2354a6b3d932d7
 
 PODFILE CHECKSUM: 70bf5777e9070926fad7523e2da355573f6ed96a
 

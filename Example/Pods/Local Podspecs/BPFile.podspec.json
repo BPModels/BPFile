@@ -1,9 +1,9 @@
 {
   "name": "BPFile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "A short description of BPFile.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/TestEngineerFish/BPFile",
+  "homepage": "https://github.com/BPModels/BPFile",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,13 @@
     "TestEngineerFish": "916878440@qq.com"
   },
   "source": {
-    "git": "https://github.com/TestEngineerFish/BPFile.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/BPModels/BPFile.git",
+    "tag": "0.2.0"
   },
+  "swift_versions": "5.0",
   "platforms": {
-    "ios": "9.0"
+    "ios": "11.0"
   },
-  "source_files": "BPFile/Classes/**/*"
+  "source_files": "BPFile/Classes/**/*",
+  "swift_version": "5.0"
 }
