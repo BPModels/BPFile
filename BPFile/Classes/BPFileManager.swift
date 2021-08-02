@@ -49,6 +49,11 @@ public struct BPFileManager {
         return data
     }
 
+    /// 录制的音频文件路径
+    public var voicePath: String {
+        return documentPath() + "/Voice"
+    }
+
     /// 默认资源存放路径
     /// - Returns: 路径地址
     private func normalPath() -> String {
