@@ -51,7 +51,9 @@ public struct BPFileManager {
 
     /// 录制的音频文件路径
     public var voicePath: String {
-        return documentPath() + "/Voice"
+        let path = documentPath() + "/Voice"
+        self.checkDirectory(path: path)
+        return path
     }
 
     /// 默认资源存放路径
