@@ -48,6 +48,26 @@ public struct BPFileManager {
         BPFileConfig.share.delegate?.printFileLog(log: "文件\(name)读取成功")
         return data
     }
+    
+    /// 保存云盘文件
+    @discardableResult
+    public func saveCloudFile(type:String, name: String, data: Data) -> Bool {
+        let path = "\(cloudPath(type: type))/\(name)"
+        return FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
+    }
+    /// 删除云盘文件
+    public func removeCloudFile(type:String, name: String) {
+        let path = "\(cloudPath(type: type))/\(name)"
+        try? FileManager.default.removeItem(atPath: path)
+    }
+    
+    /// 检测云盘文件是否存在
+    public func checkCloudFileExists(type:String, name: String) -> Bool {
+        let path = self.cloudPath(type: type) + "/\(name)"
+//        let all = FileManager.default.enumerator(atPath: self.cloudPath(type: type))?.allObjects
+        return FileManager.default.fileExists(atPath: path)
+    }
+
 
     /// 录制的音频文件路径
     public var voicePath: String {
@@ -60,6 +80,13 @@ public struct BPFileManager {
     /// - Returns: 路径地址
     private func normalPath() -> String {
         let path = documentPath() + "/Normal"
+        self.checkDirectory(path: path)
+        return path
+    }
+    
+    /// 云盘文件路径
+    public func cloudPath(type:String) -> String {
+        let path = documentPath() + "/cloud/\(type)"
         self.checkDirectory(path: path)
         return path
     }
