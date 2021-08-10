@@ -55,9 +55,12 @@ public struct BPFileManager {
         let path = "\(cloudPath(type: type))/\(name)"
         return FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
     }
-    /// 删除云盘文件
-    public func removeCloudFile(type:String, name: String) {
-        let path = "\(cloudPath(type: type))/\(name)"
+    /// 删除云盘文件夹或者文件
+    public func removeCloudItem(type:String, name: String?) {
+        var path:String = "\(cloudPath(type: type))"
+        if let name = name {
+            path.append("/\(name)")
+        }
         try? FileManager.default.removeItem(atPath: path)
     }
     
