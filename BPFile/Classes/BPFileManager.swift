@@ -52,21 +52,21 @@ public struct BPFileManager {
     /// 保存云盘文件
     @discardableResult
     public func saveCloudFile(folderName:String, fileName: String, data: Data) -> Bool {
-        let path = "\(cloudPath(folderName: folderName))/\(fileName)"
-        return FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
+        let folderPath = self.cloudPath(folderName: folderName, fileName: nil)
+        self.checkDirectory(path: folderPath)
+        let path = self.cloudPath(folderName: folderName, fileName: fileName)
+        let result = FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
+        return result
     }
     /// 删除云盘文件夹或者文件
     public func removeCloudItem(folderName:String, fileName: String?) {
-        var path:String = "\(cloudPath(folderName: folderName))"
-        if let fileName = fileName {
-            path.append("/\(fileName)")
-        }
+        let path:String = self.cloudPath(folderName: folderName, fileName: fileName)
         try? FileManager.default.removeItem(atPath: path)
     }
     
     /// 检测云盘文件是否存在
     public func checkCloudFileExists(folderName:String, fileName: String) -> Bool {
-        let path = self.cloudPath(folderName: folderName) + "/\(fileName)"
+        let path = self.cloudPath(folderName: folderName, fileName: fileName)
 //        let all = FileManager.default.enumerator(atPath: self.cloudPath(type: type))?.allObjects
         return FileManager.default.fileExists(atPath: path)
     }
@@ -87,10 +87,12 @@ public struct BPFileManager {
         return path
     }
     
-    /// 云盘文件路径
-    public func cloudPath(folderName:String) -> String {
-        let path = documentPath() + "/cloud/\(folderName)"
-        self.checkDirectory(path: path)
+    /// 云盘文件(夹)路径
+    public func cloudPath(folderName:String, fileName:String? = nil) -> String {
+        var path = documentPath() + "/cloud/\(folderName)"
+        if let fileName = fileName{
+            path.append("/\(fileName)")
+        }
         return path
     }
     
