@@ -51,22 +51,22 @@ public struct BPFileManager {
     
     /// 保存云盘文件
     @discardableResult
-    public func saveCloudFile(type:String, name: String, data: Data) -> Bool {
-        let path = "\(cloudPath(type: type))/\(name)"
+    public func saveCloudFile(folderName:String, fileName: String, data: Data) -> Bool {
+        let path = "\(cloudPath(folderName: folderName))/\(fileName)"
         return FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
     }
     /// 删除云盘文件夹或者文件
-    public func removeCloudItem(type:String, name: String?) {
-        var path:String = "\(cloudPath(type: type))"
-        if let name = name {
-            path.append("/\(name)")
+    public func removeCloudItem(folderName:String, fileName: String?) {
+        var path:String = "\(cloudPath(folderName: folderName))"
+        if let fileName = fileName {
+            path.append("/\(fileName)")
         }
         try? FileManager.default.removeItem(atPath: path)
     }
     
     /// 检测云盘文件是否存在
-    public func checkCloudFileExists(type:String, name: String) -> Bool {
-        let path = self.cloudPath(type: type) + "/\(name)"
+    public func checkCloudFileExists(folderName:String, fileName: String) -> Bool {
+        let path = self.cloudPath(folderName: folderName) + "/\(fileName)"
 //        let all = FileManager.default.enumerator(atPath: self.cloudPath(type: type))?.allObjects
         return FileManager.default.fileExists(atPath: path)
     }
@@ -88,8 +88,8 @@ public struct BPFileManager {
     }
     
     /// 云盘文件路径
-    public func cloudPath(type:String) -> String {
-        let path = documentPath() + "/cloud/\(type)"
+    public func cloudPath(folderName:String) -> String {
+        let path = documentPath() + "/cloud/\(folderName)"
         self.checkDirectory(path: path)
         return path
     }
