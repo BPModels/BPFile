@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum BPMediaType: Int {
+public enum BPMediaImageType {
     /// 头像
     case icon
     /// 缩略图
@@ -16,27 +16,32 @@ public enum BPMediaType: Int {
     case image
     /// 原图（未压缩）
     case originImage
-    /// 视频
-    case video
-    /// 音频
-    case audio
-    /// 文件
-    case file
-
+    
     var typeStr: String {
         get {
             switch self {
+            case .icon:
+                return "_pic_icon"
             case .thumbImage:
                 return "_pic_thum"
             case .image:
                 return "_pic"
             case .originImage:
                 return "_pic_hd"
-            default:
-                return ""
             }
         }
     }
+}
+
+public enum BPMediaType {
+    /// 图片
+    case image(type: BPMediaImageType)
+    /// 视频
+    case video
+    /// 音频
+    case audio
+    /// 文件
+    case file
 }
 
 public extension BPFileManager {
@@ -52,13 +57,16 @@ public extension BPFileManager {
     func saveSessionMediaFile(type: BPMediaType, name: String, session: String, data: Data) -> String? {
         var path = ""
         switch type {
-        case .icon:
-            path = "\(iconPath())/\(session)"
-        case .thumbImage, .image, .originImage:
-            let dotIndex = name.lastIndex(of: ".") ?? name.endIndex
-            let _name    = name[name.startIndex..<dotIndex]
-            let _suffix  = name[dotIndex..<name.endIndex]
-            path = "\(imagePath(session: session))/\(_name)\(type.typeStr)\(_suffix)"
+        case .image(let type):
+            switch type {
+            case .icon:
+                path = "\(iconPath())/" + name
+            default:
+                let dotIndex = name.lastIndex(of: ".") ?? name.endIndex
+                let _name    = name[name.startIndex..<dotIndex]
+                let _suffix  = name[dotIndex..<name.endIndex]
+                path = "\(imagePath(session: session))/\(_name)\(type.typeStr)\(_suffix)"
+            }
         case .video:
             path = "\(videoPath(session: session))/\(name)"
         case .audio:
@@ -85,13 +93,16 @@ public extension BPFileManager {
     func receiveSessionMediaFile(type: BPMediaType, name: String, session: String) -> Data? {
         var path = ""
         switch type {
-        case .icon:
-            path = "\(iconPath())/\(session)"
-        case .thumbImage, .image, .originImage:
-            let dotIndex = name.lastIndex(of: ".") ?? name.endIndex
-            let _name    = name[name.startIndex..<dotIndex]
-            let _suffix  = name[dotIndex..<name.endIndex]
-            path = "\(imagePath(session: session))/\(_name)\(type.typeStr)\(_suffix)"
+        case .image(let type):
+            switch type {
+            case .icon:
+                path = "\(iconPath())/\(name)"
+            case .thumbImage, .image, .originImage:
+                let dotIndex = name.lastIndex(of: ".") ?? name.endIndex
+                let _name    = name[name.startIndex..<dotIndex]
+                let _suffix  = name[dotIndex..<name.endIndex]
+                path = "\(imagePath(session: session))/\(_name)\(type.typeStr)\(_suffix)"
+            }
         case .video:
             path = "\(videoPath(session: session))/\(name)"
         case .audio:
