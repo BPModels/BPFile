@@ -10,6 +10,8 @@ import Foundation
 public enum BPMediaImageType {
     /// 头像
     case icon
+    /// 地图消息
+    case mapMessage
     /// 缩略图
     case thumbImage
     /// 大图（压缩后）
@@ -22,6 +24,8 @@ public enum BPMediaImageType {
             switch self {
             case .icon:
                 return "_pic_icon"
+            case .mapMessage:
+                return "_pic_map"
             case .thumbImage:
                 return "_pic_thum"
             case .image:
@@ -61,6 +65,8 @@ public extension BPFileManager {
             switch type {
             case .icon:
                 path = "\(iconPath())/" + name
+            case .mapMessage:
+                path = "\(mapMessagePath())/" + name
             default:
                 let dotIndex = name.lastIndex(of: ".") ?? name.endIndex
                 let _name    = name[name.startIndex..<dotIndex]
@@ -97,6 +103,8 @@ public extension BPFileManager {
             switch type {
             case .icon:
                 path = "\(iconPath())/\(name)"
+            case .mapMessage:
+                path = "\(mapMessagePath())/" + name
             case .thumbImage, .image, .originImage:
                 let dotIndex = name.lastIndex(of: ".") ?? name.endIndex
                 let _name    = name[name.startIndex..<dotIndex]
@@ -128,6 +136,13 @@ public extension BPFileManager {
     /// 获取会话头像存储路径
     private func iconPath() -> String {
         let path = "\(mediaPath())/Icon"
+        self.checkDirectory(path: path)
+        return path
+    }
+    
+    /// 获取会话地图快照存储路径
+    private func mapMessagePath() -> String {
+        let path = "\(mediaPath())/mapMessage"
         self.checkDirectory(path: path)
         return path
     }
