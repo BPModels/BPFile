@@ -6,47 +6,7 @@
 //
 
 import Foundation
-
-public enum BPMediaImageType {
-    /// 头像
-    case icon
-    /// 地图消息
-    case mapMessage
-    /// 缩略图
-    case thumbImage
-    /// 大图（压缩后）
-    case image
-    /// 原图（未压缩）
-    case originImage
-    
-    var typeStr: String {
-        get {
-            switch self {
-            case .icon:
-                return "_pic_icon"
-            case .mapMessage:
-                return "_pic_map"
-            case .thumbImage:
-                return "_pic_thum"
-            case .image:
-                return "_pic"
-            case .originImage:
-                return "_pic_hd"
-            }
-        }
-    }
-}
-
-public enum BPMediaType {
-    /// 图片
-    case image(type: BPMediaImageType)
-    /// 视频
-    case video
-    /// 音频
-    case audio
-    /// 文件
-    case file
-}
+import BPCommon
 
 public extension BPFileManager {
 

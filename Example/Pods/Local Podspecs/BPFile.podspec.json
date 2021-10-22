@@ -1,6 +1,6 @@
 {
   "name": "BPFile",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "summary": "A short description of BPFile.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/BPModels/BPFile",
@@ -13,12 +13,17 @@
   },
   "source": {
     "git": "https://github.com/BPModels/BPFile.git",
-    "tag": "0.2.0"
+    "tag": "0.3.1"
   },
   "swift_versions": "5.0",
   "platforms": {
     "ios": "11.0"
   },
   "source_files": "BPFile/Classes/**/*",
+  "dependencies": {
+    "BPCommon": [
+
+    ]
+  },
   "swift_version": "5.0"
 }
